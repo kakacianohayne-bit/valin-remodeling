@@ -515,19 +515,29 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════
-       SECTION 8 — CTA BANNER
+       SECTION 8 — BEFORE & AFTER
        ═══════════════════════════════════════════════════════ -->
-  <section class="cta-banner" id="ctaBanner">
-    <div class="cta-banner__bg">
-      <img src="textura certa.png" alt="Premium texture background" class="cta-banner__bg-img" />
-      <div class="cta-banner__overlay"></div>
-    </div>
-    <div class="cta-banner__content">
-      <h2 class="cta-banner__heading">Ready for a Flooring Upgrade?</h2>
-      <p class="cta-banner__body">
-        Discover how Valin Remodeling can transform your space with premium flooring solutions. Contact us today to get started!
+  <section class="before-after-section" id="beforeAfterSection">
+    <div class="getintouch__hero">
+      <div class="ba-slider" id="baSlider">
+        <img src="antes.png" alt="After" class="ba-slider__after">
+        <div class="ba-slider__before" id="baBefore">
+          <img src="antes1.png" alt="Before">
+        </div>
+        <input type="range" min="0" max="100" value="50" class="ba-slider__handle-range" id="baSliderRange">
+        <div class="ba-slider__handle-line" id="baHandleLine">
+          <div class="ba-slider__handle-button">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M10 17l-5-5 5-5v10zm4-10l5 5-5 5V7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="getintouch__hero-overlay"></div>
+      <p class="getintouch__hero-caption">
+        Premium tile and marble installations that redefine elegance — every surface crafted to reflect luxury, durability, and timeless design.
       </p>
-      <a href="#" class="cta-banner__btn" id="ctaBannerBtn" onclick="event.preventDefault(); document.getElementById('contactPopupOverlay').classList.add('is-active');">Call us now!</a>
+      <span class="getintouch__hero-tagline">LUXURY STARTS FROM THE GROUND UP</span>
     </div>
   </section>
 
@@ -660,28 +670,20 @@
        ═══════════════════════════════════════════════════════ -->
   <section class="getintouch" id="getintouch">
 
-    <!-- Architectural Image Banner -->
-    <div class="getintouch__hero">
-      <div class="ba-slider" id="baSlider">
-        <img src="antes.png" alt="After" class="ba-slider__after">
-        <div class="ba-slider__before" id="baBefore">
-          <img src="antes1.png" alt="Before">
-        </div>
-        <input type="range" min="0" max="100" value="50" class="ba-slider__handle-range" id="baSliderRange">
-        <div class="ba-slider__handle-line" id="baHandleLine">
-          <div class="ba-slider__handle-button">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M10 17l-5-5 5-5v10zm4-10l5 5-5 5V7z"/>
-            </svg>
-          </div>
-        </div>
+    <!-- CTA BANNER MOVED HERE -->
+    <section class="cta-banner" id="ctaBanner">
+      <div class="cta-banner__bg">
+        <img src="textura certa.png" alt="Premium texture background" class="cta-banner__bg-img" />
+        <div class="cta-banner__overlay"></div>
       </div>
-      <div class="getintouch__hero-overlay"></div>
-      <p class="getintouch__hero-caption">
-        Premium tile and marble installations that redefine elegance — every surface crafted to reflect luxury, durability, and timeless design.
-      </p>
-      <span class="getintouch__hero-tagline">LUXURY STARTS FROM THE GROUND UP</span>
-    </div>
+      <div class="cta-banner__content">
+        <h2 class="cta-banner__heading">Ready for a Flooring Upgrade?</h2>
+        <p class="cta-banner__body">
+          Discover how Valin Remodeling can transform your space with premium flooring solutions. Contact us today to get started!
+        </p>
+        <a href="#" class="cta-banner__btn" id="ctaBannerBtn" onclick="event.preventDefault(); document.getElementById('contactPopupOverlay').classList.add('is-active');">Call us now!</a>
+      </div>
+    </section>
 
     <!-- Dark Contact Section -->
     <div class="getintouch__body">
