@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valin Remodeling — Premium Flooring & Interior Renovation</title>
+  <meta name="description" content="Valin Remodeling transforms everyday interiors into clean, timeless spaces. Premium flooring installation, stairs, tile, hardwood, and custom finishes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Inter+Tight:wght@100;300;400;500;600;700&family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=213" />
+</head>
+<body>
+
+  <!-- ─── Global Fixed Navigation ─── -->
+  <nav class="hero__nav" id="heroNav">
+    <div class="hero__nav-left">
+      <a href="#" class="hero__logo" id="heroLogo">
+        <img src="logosemfundo.png" alt="Valin Remodeling" class="hero__logo-img" style="height: 38px; width: auto;" />
+      </a>
+    </div>
+
+    <ul class="hero__nav-links" id="heroNavLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#catalog">Services</a></li>
+      <li><a href="#interiors">Projects</a></li>
+      <li><a href="#getintouch">Contact</a></li>
+    </ul>
+
+    <div class="hero__nav-right">
+      <a href="#" class="hero__nav-cta" id="heroNavCta" onclick="event.preventDefault(); document.getElementById('contactPopupOverlay').classList.add('is-active');">Free On-Site Estimate</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO SECTION — SCROLL-DRIVEN CINEMATIC EXPERIENCE
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__container" id="heroContainer">
+
+      <div class="hero__image-wrap">
+        <!-- 
+          ====== BACKGROUND DE VÍDEO ======
+          1. Salve seu arquivo de vídeo na pasta do projeto (Cliente USA)
+          2. Renomeie o vídeo para "hero-video.mp4"
+          =================================
+        -->
+        <video
+          src="novo backgrond.mp4"
+          class="hero__image"
+          id="heroImage"
+          autoplay
+          loop
+          muted
+          playsinline
+        ></video>
+
+        <!-- A animação de fogo foi comentada. Se o seu novo vídeo tiver uma lareira que precise de fogo falso, você pode remover os comentários de formatação abaixo 
+        <div class="hero__fire-glow" id="heroFireGlow"></div> 
+        -->
+        
+        <div class="hero__image-overlay" id="heroOverlay"></div>
+      </div>
+
+      <!-- ─── Supporting copy (Left Side) ─── -->
+      <div class="hero__copy" id="heroCopy">
+        <h1 class="hero__copy-heading" id="heroMain">
+          <span class="fade-word">Ready</span> 
+          <span class="fade-word">for a</span><br id="heroSecondary" />
+          <span class="fade-word">home</span> 
+          <span class="fade-word">upgrade</span>
+        </h1>
+        <p class="hero__copy-body">
+          We help you build or remodel carefully selected high-quality interiors — from vinyl and laminate installations, to expert carpet, tile, and hardwood flooring. Not just remodeling. A flawless execution.
+        </p>
+        <div class="hero__copy-actions">
+          <a href="#" class="hero__btn--primary" id="heroBtnPrimary" onclick="event.preventDefault(); document.getElementById('contactPopupOverlay').classList.add('is-active');">
+            Explore Projects
+          </a>
+        </div>
+      </div>
+
+      <!-- ─── Floating Cards (Reference Style) ─── -->
+      <div class="hero__cards" id="heroCards">
+        <!-- Wide Stat Card -->
+        <div class="hero__card hero__card--stat-wide">
+          <div class="hero__stat-value">+600</div>
+          <div class="hero__stat-label">satisfied customers</div>
+        </div>
+
+        <!-- Large Vertical Preview Card — Map + Social -->
+        <div class="hero__card-wrapper" style="position: relative;">
+          <div class="hero__card-map-balloon">
+            <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" class="hero__card-map-balloon-pin">
+              <path d="M5 0C2.24 0 0 2.14 0 4.78 0 8.36 5 12 5 12s5-3.64 5-7.22C10 2.14 7.76 0 5 0zm0 6.5a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5z"/>
+            </svg>
+            2917 River Run Way, Bradenton FL
+          </div>
+          <div class="hero__card hero__card--preview-tall">
+            <div class="hero__card-image-wrap hero__card-map-wrap">
+              <a href="https://www.google.com/maps/place/2917+River+Run+Way,+Bradenton,+FL+34208" target="_blank" rel="noopener noreferrer" class="hero__card-map-link" title="Open in Google Maps">
+              <iframe
+                src="https://maps.google.com/maps?q=2917+River+Run+Way,+Bradenton,+FL&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style="border:0; border-radius: 12px; pointer-events: none;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="2917 River Run Way, Bradenton FL">
+              </iframe>
+              <div class="hero__card-map-overlay"></div>
+              <div class="hero__card-map-label-cover"></div>
+            </a>
+          </div>
+          <!-- Social Icons -->
+          <div class="hero__card-socials">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="hero__social-icon" title="Instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="5"/>
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="hero__social-icon" title="Facebook" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" class="hero__social-icon" title="Google" aria-label="Google">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ─── Bottom bar accent ─── -->
+      <div class="hero__bottom-bar" id="heroBottomBar">
+        <span class="hero__scroll-hint" id="heroScrollHint">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v12M3 9l5 5 5-5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Scroll to explore
+        </span>
+        <span class="hero__copyright">© 2024 Valin Remodeling</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BRAND TICKER — INFINITE SCROLLING COMPANY NAMES
+       ═══════════════════════════════════════════════════════ -->
+  <section class="ticker" id="ticker">
+    <div class="ticker__wrap">
+      <div class="ticker__track" id="tickerTrack">
+        <span class="ticker__item">Mohawk Industries</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Armstrong Flooring</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Mannington</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Lumber Liquidators</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Bruce Hardwood</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Tulip</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Perm Shield</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Mohawk Flooring</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Sherwin Williams</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Benjamin Moore</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">DeWalt</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Sherwin Williams</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Hallmark Floors</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Fer-Ma</span>
+        <span class="ticker__sep">✦</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker__item">Mohawk Industries</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Armstrong Flooring</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Mannington</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Lumber Liquidators</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Bruce Hardwood</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Tulip</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Perm Shield</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Mohawk Flooring</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">DeWalt</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Sherwin Williams</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Hallmark Floors</span>
+        <span class="ticker__sep">✦</span>
+        <span class="ticker__item">Fer-Ma</span>
+        <span class="ticker__sep">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT / BACKGROUND SECTION — EDITORIAL LAYOUT
+       ═══════════════════════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="about__container">
+
+      <div class="about__grid">
+
+        <!-- Left column — section label + badges -->
+        <div class="about__label-col" id="aboutLabel">
+          <span class="about__label-text">PROJECT BACKGROUND</span>
+          <div class="about__badges">
+            <img src="osha.webp" alt="OSHA Certified" class="about__badge" />
+            <img src="google.webp" alt="Google Verified" class="about__badge" />
+          </div>
+        </div>
+
+        <!-- Right column — content -->
+        <div class="about__content" id="aboutContent">
+          <p class="about__text">
+            <span class="about__text-bold">FROM FLOORING AND PAINTING TO FULL RESIDENTIAL REMODELING, WE HELP TRANSFORM YOUR SPACE WITH SOLUTIONS THAT FIT YOUR STYLE AND YOUR BUDGET.</span> 
+            <span class="about__text-light">WE SERVE TAMPA, PARRISH, PALMETTO, BRADENTON, ST. PETE, LAKEWOOD RANCH, AND SARASOTA, DELIVERING QUALITY WORK AND A SMOOTH, STRESS-FREE EXPERIENCE FROM START TO FINISH.</span>
+          </p>
+
+          <p class="about__subtext">
+            clean materials, expert installation, and minimal design help homeowners experience spaces that feel both elegant and welcoming — built to last for generations
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       OUR PROCESS SECTION — EDITORIAL STAGGERED CARDS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="process" id="process">
+    <!-- Background Image -->
+    <div class="process__bg-wrap">
+      <img src="nova fachada.png" alt="Modern luxury home exterior" class="process__bg-image" />
+      <div class="process__bg-overlay"></div>
+    </div>
+
+    <!-- Section Label -->
+    <span class="process__label">OUR PROCESS</span>
+
+    <!-- Cards Grid -->
+    <div class="process__cards">
+
+      <!-- Card 01 -->
+      <div class="process__card process__card--1">
+        <span class="process__card-number">01</span>
+        <h3 class="process__card-title">CONSULTATION</h3>
+        <p class="process__card-desc">We listen to your vision, analyze your space, and understand your goals — from style preferences to budget expectations.</p>
+      </div>
+
+      <!-- Decorative arc -->
+      <svg class="process__arc process__arc--1" width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="36" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="6 6"/>
+      </svg>
+
+      <!-- Card 02 -->
+      <div class="process__card process__card--2">
+        <span class="process__card-number">02</span>
+        <h3 class="process__card-title">PLANNING</h3>
+        <p class="process__card-desc">A detailed project roadmap is created to ensure seamless material selection, scheduling, and flawless coordination.</p>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="process__card process__card--3">
+        <span class="process__card-number">03</span>
+        <h3 class="process__card-title">EXECUTION</h3>
+        <p class="process__card-desc">Our expert craftsmen handle every installation with precision — from hardwood flooring to full-scale remodeling.</p>
+      </div>
+
+      <!-- Decorative arc -->
+      <svg class="process__arc process__arc--2" width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="36" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="6 6"/>
+      </svg>
+
+      <!-- Card 04 -->
+      <div class="process__card process__card--4">
+        <span class="process__card-number">04</span>
+        <h3 class="process__card-title">FINAL REVEAL</h3>
+        <p class="process__card-desc">The result is a stunning, finished space that exceeds expectations — delivered on time with a flawless walkthrough.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 4 — EXPERTISE & METRICS (REF IMAGE)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="expertise" id="expertise">
+    <div class="expertise__container">
+      
+      <div class="expertise__grid">
+        <!-- Left Column: Label -->
+        <div class="expertise__label-col">
+          <span class="expertise__label-text">ABOUT</span>
+        </div>
+
+        <!-- Right Column: Content -->
+        <div class="expertise__content">
+          <p class="expertise__text">
+            <span class="expertise__text-bold">VALIN REMODELING IS A FAMILY-OWNED COMPANY FOCUSED ON RESIDENTIAL REMODELING, INCLUDING FLOORING, PAINTING, AND GENERAL RENOVATIONS.</span> 
+            <span class="expertise__text-light">OUR WORK IS BUILT ON HANDS-ON EXPERIENCE, WITH A SIMPLE APPROACH, DOING THINGS THE RIGHT WAY AND PAYING ATTENTION TO DETAIL. WE TREAT EVERY HOME WITH CARE, RESPECTING THE SPACE AND THE PEOPLE WHO LIVE IN IT.</span>
+          </p>
+
+          <!-- Metrics Row -->
+          <div class="expertise__metrics">
+            <div class="expertise__metric">
+              <h4 class="expertise__metric-number" data-target="5">
+                <span class="num">0</span><span class="suffix">+ Years</span>
+              </h4>
+              <p class="expertise__metric-desc">Deep experience in high-end renovations. We understand both the structural needs and the aesthetic goals of modern homeowners.</p>
+            </div>
+            <div class="expertise__metric">
+              <h4 class="expertise__metric-number" data-target="1000">
+                <span class="num">0</span><span class="suffix">+ Projects</span>
+              </h4>
+              <p class="expertise__metric-desc">Trusted by families and designers across the region. Most of our work comes through direct referrals and returning clients.</p>
+            </div>
+            <div class="expertise__metric">
+              <h4 class="expertise__metric-number" data-target="450">
+                <span class="num">0</span><span class="suffix">+ Experts</span>
+              </h4>
+              <p class="expertise__metric-desc">Trusted by 450+ satisfied customers worldwide, delivering results that truly make a difference.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 5 — CINEMATIC ARCHITECTURAL PHOTO (WIDESCREEN)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="cinematic" id="cinematic">
+    <div class="cinematic__container">
+      <div class="cinematic__wrap">
+        <video id="scrollVideo" src="cinematic-video.mp4" muted playsinline preload="auto" class="cinematic__video"></video>
+        <div class="cinematic__overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 6 — CATALOG / SHOWROOM
+       ═══════════════════════════════════════════════════════ -->
+  <section class="catalog" id="catalog">
+    <div class="catalog__container">
+      
+      <!-- Part 1: Main Project Showcase (Restored Grid) -->
+      <div class="catalog__showcase">
+        <div class="catalog__showcase-content">
+          <h2 class="catalog__title">Why Choose Us?</h2>
+
+          
+          <div class="catalog__text" style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 400; line-height: 1.6; margin-bottom: 2rem; max-width: 500px;">
+            <p>Personalized service from start to finish. We stay available even after the job is done, because your experience matters to us. We believe great work leads to referrals, and we stand behind everything we do. Fully licensed and insured for your peace of mind.</p>
+          </div>
+
+          <div class="catalog__actions">
+            <a href="#" class="catalog__btn" onclick="event.preventDefault(); document.getElementById('contactPopupOverlay').classList.add('is-active');">Get a Quote</a>
+          </div>
+          <div class="catalog__divider"></div>
+        </div>
+        <div class="catalog__showcase-media">
+          <div class="catalog__video-container">
+            <div class="catalog__video-wrapper">
+              <video id="catalogVideo" src="VALIN__VIDEO.mp4" loop playsinline class="catalog__showcase-video"></video>
+            </div>
+            <button class="catalog__play-btn" id="catalogPlayBtn" aria-label="Play Video">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 7 — INTERIORS & STYLING (SCROLL-TRANSFORM)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="interiors" id="interiors">
+    <div class="interiors__container">
+      
+      <!-- Top header: Editorial Grid -->
+      <div class="interiors__header">
+        <div class="interiors__header-left">
+          <h2 class="interiors__title">OUR MAIN SERVICES</h2>
+        </div>
+        <div class="interiors__header-right">
+          <p class="interiors__body">
+            FOUNDED BY RAFAEL & SOFIA, VALIN REMODELING DELIVERS TOP-QUALITY FLOORING SOLUTIONS, SPECIALIZING IN HARDWOOD AND VINYL.
+          </p>
+          <p class="interiors__body">
+            <strong>WE FOCUS ON EXCELLENCE, INNOVATION, AND FAST EXECUTION TO ENSURE SUPERIOR RESULTS AND CUSTOMER SATISFACTION.</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Scroll-Transform Track -->
+      <div class="interiors__scroll-track" id="interiorsScrollTrack">
+
+        <!-- Page 1 -->
+        <div class="interiors__page" data-page="0">
+          <div class="interiors__page-img-wrap">
+            <img src="img1.png" alt="Flooring Installation" class="interiors__page-img" />
+          </div>
+          <div class="interiors__page-info">
+            <span class="interiors__page-number">01</span>
+            <h3 class="interiors__page-title">FLOORING</h3>
+            <p class="interiors__page-caption">
+              Expert installation of premium vinyl, laminate, and hardwood floors geared for durability and style.
+            </p>
+          </div>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="interiors__page" data-page="1">
+          <div class="interiors__page-img-wrap">
+            <img src="img2.png" alt="Interior Painting" class="interiors__page-img" />
+          </div>
+          <div class="interiors__page-info">
+            <span class="interiors__page-number">02</span>
+            <h3 class="interiors__page-title">INTERIOR PAINTING</h3>
+            <p class="interiors__page-caption">
+              Precision wall painting services that refresh your home with high-quality finishes and curated colors.
+            </p>
+          </div>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="interiors__page" data-page="2">
+          <div class="interiors__page-img-wrap">
+            <img src="img3.png" alt="Exterior Painting" class="interiors__page-img" />
+          </div>
+          <div class="interiors__page-info">
+            <span class="interiors__page-number">03</span>
+            <h3 class="interiors__page-title">EXTERIOR PAINTING</h3>
+            <p class="interiors__page-caption">
+              Enhance your home's curb appeal with professional outdoor painting solutions built to withstand the elements.
+            </p>
+          </div>
+        </div>
+
+        <!-- Page 4 -->
+        <div class="interiors__page" data-page="3">
+          <div class="interiors__page-img-wrap">
+            <img src="img4.png" alt="Bathroom Remodeling" class="interiors__page-img" />
+          </div>
+          <div class="interiors__page-info">
+            <span class="interiors__page-number">04</span>
+            <h3 class="interiors__page-title">BATHROOM REMODELING</h3>
+            <p class="interiors__page-caption">
+              From modern tiling to full vanity upgrades, we transform bathrooms into luxurious, functional retreats.
+            </p>
+          </div>
+        </div>
+
+        <!-- Page 5 -->
+        <div class="interiors__page" data-page="4">
+          <div class="interiors__page-img-wrap">
+            <img src="img 5.png" alt="Full Remodeling" class="interiors__page-img" />
+          </div>
+          <div class="interiors__page-info">
+            <span class="interiors__page-number">05</span>
+            <h3 class="interiors__page-title">FULL REMODELING</h3>
+            <p class="interiors__page-caption">
+              Comprehensive residential transformations where we handle everything from structural changes to fine finishes.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Progress Indicator -->
+      <div class="interiors__progress">
+        <div class="interiors__progress-bar" id="interiorsProgressBar"></div>
+      </div>
+      <div class="interiors__counter">
+        <span class="interiors__counter-current" id="interiorsCounterCurrent">01</span>
+        <span class="interiors__counter-sep">/</span>
+        <span class="interiors__counter-total">05</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 8 — CTA BANNER
+       ═══════════════════════════════════════════════════════ -->
+  <section class="cta-banner" id="ctaBanner">
+    <div class="cta-banner__bg">
+      <img src="textura certa.png" alt="Premium texture background" class="cta-banner__bg-img" />
+      <div class="cta-banner__overlay"></div>
+    </div>
+    <div class="cta-banner__content">
+      <h2 class="cta-banner__heading">Ready for a Flooring Upgrade?</h2>
+      <p class="cta-banner__body">
+        Discover how Valin Remodeling can transform your space with premium flooring solutions. Contact us today to get started!
+      </p>
+      <a href="#" class="cta-banner__btn" id="ctaBannerBtn" onclick="event.preventDefault(); document.getElementById('contactPopupOverlay').classList.add('is-active');">Call us now!</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 9 — CLIENT FEEDBACK & REVIEWS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="reviews" id="reviews">
+    <div class="reviews__container">
+
+      <!-- Left Column -->
+      <div class="reviews__left">
+
+        <span class="reviews__label">TESTIMONIAL</span>
+        <h2 class="reviews__heading">CLIENT FEEDBACK &<br>REVIEWS</h2>
+
+        <!-- Review Carousel -->
+        <div class="reviews__carousel" id="reviewsCarousel">
+
+          <!-- Reviewer Header -->
+          <div class="reviews__reviewer" id="reviewsReviewer">
+            <div class="reviews__avatar" id="reviewsAvatar">W</div>
+            <div class="reviews__reviewer-info">
+              <span class="reviews__reviewer-name" id="reviewsName">Weverton Oliveira</span>
+              <span class="reviews__reviewer-date" id="reviewsDate">1 year ago</span>
+            </div>
+            <div class="reviews__carousel-arrows">
+              <button class="reviews__arrow" id="reviewsPrev" aria-label="Previous review">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="reviews__arrow" id="reviewsNext" aria-label="Next review">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Review Card -->
+          <div class="reviews__card">
+            <div class="reviews__stars-row">
+              <div class="reviews__stars">★★★★★</div>
+              <span class="reviews__verified">✔</span>
+              <svg class="reviews__google-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+            </div>
+            <p class="reviews__text" id="reviewsText">
+              Valintim Flooring restored the hardwood floors in my living room, and they look brand new. The team was punctual, friendly, and very knowledgeable. Fantastic...
+            </p>
+            <span class="reviews__read-more">Read more</span>
+          </div>
+
+          <!-- Review Stats -->
+          <p class="reviews__stats">
+            <strong>Google</strong> rating score: <strong>5.0</strong> of 5, based on <strong>43 reviews</strong>
+          </p>
+
+      </div>
+
+      </div>
+
+      <!-- Right Column — Photo -->
+      <div class="reviews__right">
+        <div class="reviews__photo-wrap">
+          <img src="foto homem.png" alt="Valin Remodeling professional" class="reviews__photo" />
+        </div>
+        <!-- Score Card -->
+        <div class="reviews__score-card">
+          <div class="reviews__score-number">5.0<span class="reviews__score-plus">+</span></div>
+          <div class="reviews__score-stars">★★★★★</div>
+          <span class="reviews__score-label">EXCELLENT SCORE</span>
+          <div class="reviews__score-badge">
+            <svg viewBox="0 0 24 24" width="28" height="28" style="margin-right: 6px;">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <div>
+              <span class="reviews__badge-title">Google</span><br>
+              <span class="reviews__badge-sub">Customer Reviews</span><br>
+              <span class="reviews__badge-stars">★★★★★</span>
+            </div>
+          </div>
+          <a href="#" class="reviews__score-btn">→ Read Reviews</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 10 — CONTACT INFO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="typography" id="contactInfo">
+    <div class="typography__container">
+
+      <!-- Header Row: Label + Contact Details -->
+      <div class="typography__header">
+        <span class="typography__label">Get in touch</span>
+
+        <div class="typography__font-info">
+          <span class="typography__font-name">RAFAEL VALINTIM & SOFIA VALINTIM</span>
+          <p class="typography__font-desc">
+            Fill out the form on the right and one of our representatives will reach out to you as quickly as possible!
+          </p>
+        </div>
+
+        <div class="typography__font-info">
+          <p class="typography__font-desc" style="line-height: 2;">
+            <strong>(941) 241-2071</strong><br>
+            valinremodeling@gmail.com<br>
+            2917 River Run Way, Bradenton FL
+          </p>
+        </div>
+      </div>
+
+      <!-- Large Brand Name -->
+      <div class="typography__specimen">
+        <span class="typography__specimen-line typography__specimen-line--inter">VALIN</span>
+        <span class="typography__specimen-line typography__specimen-line--tight">REMODELING</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 11 — GET IN TOUCH + FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <section class="getintouch" id="getintouch">
+
+    <!-- Architectural Image Banner -->
+    <div class="getintouch__hero">
+      <div class="ba-slider" id="baSlider">
+        <img src="antes.png" alt="After" class="ba-slider__after">
+        <div class="ba-slider__before" id="baBefore">
+          <img src="antes1.png" alt="Before">
+        </div>
+        <input type="range" min="0" max="100" value="50" class="ba-slider__handle-range" id="baSliderRange">
+        <div class="ba-slider__handle-line" id="baHandleLine">
+          <div class="ba-slider__handle-button">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M10 17l-5-5 5-5v10zm4-10l5 5-5 5V7z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="getintouch__hero-overlay"></div>
+      <p class="getintouch__hero-caption">
+        Premium tile and marble installations that redefine elegance — every surface crafted to reflect luxury, durability, and timeless design.
+      </p>
+      <span class="getintouch__hero-tagline">LUXURY STARTS FROM THE GROUND UP</span>
+    </div>
+
+    <!-- Dark Contact Section -->
+    <div class="getintouch__body">
+      <div class="getintouch__container">
+
+        <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 3rem;">
+          <h2 class="getintouch__heading" style="margin-bottom: 0;">GET IN TOUCH</h2>
+          <div style="text-align: right; font-family: var(--font-body); color: rgba(255, 255, 255, 0.85);">
+            <div style="font-size: 1.4rem; font-weight: 300;">(941) 241-2071</div>
+            <div style="font-size: 0.85rem; font-weight: 300; margin-top: 4px; color: rgba(255,255,255,0.6); line-height: 1.4;">
+              2917 River Run Way, Bradenton FL
+            </div>
+          </div>
+        </div>
+
+        <div class="getintouch__grid">
+
+          <form class="getintouch__form" id="getInTouchForm" action="https://formsubmit.co/contact@valinremodeling.com" method="POST">
+            <input type="hidden" name="_subject" value="New Lead from Get In Touch Form!">
+            <input type="hidden" name="_captcha" value="false">
+            
+            <div class="getintouch__field">
+              <label class="getintouch__field-label">NAME</label>
+              <input type="text" class="getintouch__input" name="name" placeholder="" required />
+            </div>
+            <div class="getintouch__field">
+              <label class="getintouch__field-label">PHONE NUMBER</label>
+              <input type="tel" class="getintouch__input" name="phone" placeholder="" required />
+            </div>
+            <div class="getintouch__field">
+              <label class="getintouch__field-label">SERVICE</label>
+              <select class="getintouch__input" name="service" required style="color: #fff; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=%22%23999%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/><path d=%22M0 0h24v24H0z%22 fill=%22none%22/></svg>'); background-repeat: no-repeat; background-position: right 0px center; cursor: pointer;">
+                <option value="" disabled selected>Select a Service</option>
+                <option value="Flooring">Flooring</option>
+                <option value="Interior Painting">Interior Painting</option>
+                <option value="Exterior Painting">Exterior Painting</option>
+                <option value="Bathroom Remodeling">Bathroom Remodeling</option>
+                <option value="Full Remodeling">Full Remodeling</option>
+              </select>
+            </div>
+            <div class="getintouch__field">
+              <label class="getintouch__field-label">MESSAGE</label>
+              <textarea class="getintouch__textarea" name="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="getintouch__submit">Submit</button>
+          </form>
+
+          <!-- Right: Map + Social -->
+          <div class="getintouch__info">
+            <div class="getintouch__map-wrap" style="border-radius: 12px; overflow: hidden; height: 260px; margin-bottom: 1.5rem;">
+              <a href="https://www.google.com/maps/place/2917+River+Run+Way,+Bradenton,+FL+34208" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;height:100%;position:relative;">
+                <iframe
+                  src="https://maps.google.com/maps?q=2917+River+Run+Way,+Bradenton,+FL&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  width="100%" height="100%" style="border:0; pointer-events: none;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade" title="2917 River Run Way, Bradenton FL"></iframe>
+                <div style="position:absolute;inset:0;z-index:2;cursor:pointer;"></div>
+              </a>
+            </div>
+            <div class="getintouch__socials" style="display: flex; gap: 2rem; align-items: center;">
+              <a href="https://www.instagram.com/valinremodeling" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.3s;">@valinremodeling</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="site-footer__container">
+        <div class="site-footer__brand"><img src="logosemfundo.png" alt="Valin Remodeling" style="height: 40px; width: auto;" /></div>
+        <div class="site-footer__links">
+          <span class="site-footer__copy">© 2026 Valin Remodeling</span>
+          <a href="#" class="site-footer__link">Privacy Policy</a>
+          <a href="#" class="site-footer__link">Terms of Service</a>
+        </div>
+        <div class="site-footer__socials">
+          <a href="https://www.instagram.com/valinremodeling" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="Instagram @valinremodeling">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://m.me/valinremodeling" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="Messenger">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.48 5.48 3.79 7.15v3.45c0 .35.39.55.67.35l3.22-1.77c.74.2 1.52.31 2.32.31 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm1.09 12.5l-2.61-2.77-5.06 2.77 5.54-5.88 2.67 2.77 4.99-2.77-5.53 5.88z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="site-footer__social" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FLOATING CONTACT BUTTON
+       ═══════════════════════════════════════════════════════ -->
+  <div class="contact-float" id="contactFloat" style="opacity: 0; pointer-events: none; transition: opacity 0.4s ease;">
+    <span class="contact-float__label">Get in touch</span>
+    <a href="https://www.facebook.com/profile.php?id=61586178871187" target="_blank" rel="noopener noreferrer" class="contact-float__btn" id="contactFloatBtn" aria-label="Contact us on Messenger">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.9 1.48 5.48 3.79 7.15v3.45c0 .35.39.55.67.35l3.22-1.77c.74.2 1.52.31 2.32.31 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm1.09 12.5l-2.61-2.77-5.06 2.77 5.54-5.88 2.67 2.77 4.99-2.77-5.53 5.88z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT POPUP FORM
+       ═══════════════════════════════════════════════════════ -->
+  <div class="contact-popup-overlay" id="contactPopupOverlay">
+    <div class="contact-popup">
+      <button class="contact-popup__close" id="contactPopupClose" aria-label="Close">✕</button>
+      <h3 class="contact-popup__title">Get in Touch</h3>
+      <p class="contact-popup__subtitle">Fill in your details and we'll get back to you shortly.</p>
+      <form class="contact-popup__form" id="contactForm" action="https://formsubmit.co/contact@valinremodeling.com" method="POST">
+        <input type="hidden" name="_subject" value="New Lead from Popup Form!">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <input type="text" class="contact-popup__input" name="name" placeholder="Full Name" required />
+        <input type="tel" class="contact-popup__input" name="phone" placeholder="Phone Number" required />
+        <input type="text" class="contact-popup__input" name="location" placeholder="Location" required />
+        
+        <select class="contact-popup__input" name="service" required style="color: #666; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=%22%23999%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/><path d=%22M0 0h24v24H0z%22 fill=%22none%22/></svg>'); background-repeat: no-repeat; background-position: right 10px center; cursor: pointer;">
+          <option value="" disabled selected>Select a Service</option>
+          <option value="Flooring">Flooring</option>
+          <option value="Interior Painting">Interior Painting</option>
+          <option value="Exterior Painting">Exterior Painting</option>
+          <option value="Bathroom Remodeling">Bathroom Remodeling</option>
+          <option value="Full Remodeling">Full Remodeling</option>
+        </select>
+        
+        <textarea class="contact-popup__textarea" name="message" placeholder="Describe your project..." required></textarea>
+        <button type="submit" class="contact-popup__submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js?v=212"></script>
+</body>
+</html>
