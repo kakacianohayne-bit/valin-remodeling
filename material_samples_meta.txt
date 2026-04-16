@@ -1,5 +1,0 @@
-// This tool call will be used to save the image provided by the user.
-// Since I cannot "write" binary data directly easily without a source path, 
-// I will assume the image is part of the context and I should just use the path if it exists locally.
-// But usually, I should just use the generated artifact name if I can find it.
-// The image provided by the user is the one with the material strips.
