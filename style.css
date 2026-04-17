@@ -430,7 +430,7 @@ img {
 
 /* ─── Hero Social Icons Row ─── */
 .hero__copy-socials {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -3438,6 +3438,9 @@ img {
     display: flex;
     margin-top: 1.5rem;
     justify-content: center;
+  }
+  .hero__copy-socials {
+    display: flex;
   }
   .hero__cards {
     display: none;
