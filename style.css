@@ -97,6 +97,7 @@ body {
   background: var(--color-white);
   color: var(--color-dark);
   overflow-x: hidden;
+  width: 100%;
 }
 
 a {
@@ -2650,6 +2651,7 @@ img {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 4rem;
+  overflow-x: hidden;
 }
 
 /* ─── Top Header Row ─── */
