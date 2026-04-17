@@ -3358,6 +3358,9 @@ img {
   }
 
   /* Hero Adjustments */
+  .hero {
+    height: 100vh;
+  }
   .hero__nav {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -3376,16 +3379,19 @@ img {
     font-size: 0.72rem;
   }
   .hero__copy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
     text-align: center;
-    bottom: auto;
   }
   .hero__copy-heading {
     font-size: clamp(2.2rem, 10vw, 3rem);
@@ -3397,6 +3403,7 @@ img {
   .hero__copy-actions {
     display: flex;
     margin-top: 1.5rem;
+    justify-content: center;
   }
   .hero__cards {
     display: none;
