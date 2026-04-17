@@ -138,6 +138,9 @@
     const sy = state.scrollY;
     const cfg = CONFIG.scroll;
 
+    // Skip hero scroll transformations on mobile to preserve CSS centering
+    const isMobile = window.innerWidth <= 768;
+
     // ── 1. SCROLL HINT — fade out fast ──
     if (el.heroScrollHint) {
       const hintOpacity = mapRange(sy, 0, cfg.scrollHintEnd, 1, 0);
@@ -172,7 +175,7 @@
     }
 
     // ── 3. SUPPORTING COPY — fades out slowly ──
-    if (el.heroCopy) {
+    if (el.heroCopy && !isMobile) {
       const copyOpacity = mapRange(sy, 150, 600, 1, 0);
       const copyTransY = mapRange(sy, 150, 600, 0, -40);
 
@@ -196,7 +199,7 @@
     }
 
     // ── 6. FLOATING CARDS — fade out slowly ──
-    if (el.heroCards) {
+    if (el.heroCards && !isMobile) {
       const cardsOpacity = mapRange(sy, 100, 500, 1, 0);
       const cardsTransY = mapRange(sy, 100, 500, 0, -60);
 
