@@ -18,17 +18,17 @@
     lerp: 0.06,
     scroll: {
       // Scroll ranges (in px from top) for hero transformation
-      heroFadeStart: 50,     // When hero elements start fading
-      heroFadeEnd: 500,    // When hero elements are fully faded
-      headlineStart: 0,      // Headline starts transforming immediately
-      headlineEnd: 400,    // Headline fully transformed
-      containerStart: 100,    // Container compression begins
-      containerEnd: 600,    // Container fully compressed
-      cardsStart: 80,     // Cards start repositioning
-      cardsEnd: 450,    // Cards fully repositioned
-      copyFadeStart: 30,     // Supporting copy starts fading
-      copyFadeEnd: 250,    // Supporting copy fully faded
-      scrollHintEnd: 120,    // Scroll hint disappears quickly
+      heroFadeStart: 0,     // Start immediately
+      heroFadeEnd: 150,    // Fade quickly as it leaves
+      headlineStart: 0,
+      headlineEnd: 200,
+      containerStart: 0,
+      containerEnd: 300,
+      cardsStart: 0,
+      cardsEnd: 200,
+      copyFadeStart: 0,
+      copyFadeEnd: 150,
+      scrollHintEnd: 80,
     },
   };
 
@@ -803,14 +803,10 @@
       if (isVisible) {
         const rect = section.getBoundingClientRect();
 
-        // The section is 300vh. Sticky container is 100vh.
-        // Scrollable range is 200vh.
-        // Progress 0: Top of section hits top of viewport.
-        // Progress 1: Bottom of 300vh section is 100vh from top (last frame).
-
-        const scrollDistance = -rect.top; // How much has been scrolled past top
+        // Reverted to 300vh scroll progress behavior for desktop
+        const scrollDistance = -rect.top;
         const maxScroll = rect.height - window.innerHeight;
-        const progress = clamp(scrollDistance / maxScroll, 0, 1);
+        const progress = clamp(scrollDistance / Math.max(1, maxScroll), 0, 1);
 
         if (video.readyState >= 2 && video.duration) {
           targetTime = video.duration * progress;
