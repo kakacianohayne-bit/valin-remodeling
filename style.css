@@ -1927,11 +1927,7 @@ img {
   will-change: transform;
 }
 
-/* Ajuste específico para o banheiro aparecer inteiro */
-.interiors__page[data-page="3"] .interiors__page-img {
-  object-fit: contain;
-  background: #fdfdfd;
-}
+/* Removed specific bathroom contain rule to fix reported error */
 
 .interiors__page:hover .interiors__page-img {
   transform: scale(1.04);
