@@ -146,6 +146,7 @@ img {
 .hero__image-wrap {
   position: absolute;
   inset: 0;
+  background: #1A1A1A url('hero-bg.png') center/cover no-repeat;
   z-index: 1;
   overflow: hidden;
 }
@@ -228,32 +229,34 @@ img {
   padding-bottom: 12px;
 }
 
-/* When over light/white background sections */
+/* When over light/white background sections — STRONG DARK GLASS */
 .hero__nav--on-light {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.4); /* Fundo fumê para destacar logo dourada/branca */
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .hero__nav--on-light .hero__nav-links a {
-  color: #1A1A1A;
-  text-shadow: none;
+  color: #FFFFFF; /* Mantém branco para contrastar com o vidro fumê */
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
 .hero__nav--on-light .hero__nav-cta {
-  color: #1A1A1A;
-  border-color: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .hero__nav--on-light .hero__nav-cta:hover {
-  background: #1A1A1A;
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 
 .hero__nav--on-light .hero__logo-img {
-  mix-blend-mode: normal;
-  filter: none;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
 }
 
 @keyframes fadeInDown {
@@ -1454,7 +1457,7 @@ img {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: #FFFFFF url('hero-bg-empty.png') center/cover no-repeat;
 }
 
 .cinematic__video {
@@ -1467,7 +1470,7 @@ img {
 .cinematic__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.05);
   pointer-events: none;
 }
 
@@ -1583,7 +1586,35 @@ img {
 .catalog__actions {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 1.2rem;
   margin-bottom: 2rem;
+}
+
+.catalog__social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  color: #333;
+  transition: all 0.3s ease;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.catalog__social-icon:hover {
+  background: #333;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.catalog__social-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .catalog__btn {
@@ -1890,6 +1921,12 @@ img {
   object-fit: cover;
   transition: transform 1.2s var(--ease-luxury);
   will-change: transform;
+}
+
+/* Ajuste específico para o banheiro aparecer inteiro */
+.interiors__page[data-page="3"] .interiors__page-img {
+  object-fit: contain;
+  background: #fdfdfd;
 }
 
 .interiors__page:hover .interiors__page-img {
@@ -2389,24 +2426,36 @@ img {
   margin-bottom: 1rem;
 }
 
+.reviews__score-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.reviews__badge-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
 .reviews__badge-title {
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: #555;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #333;
 }
 
 .reviews__badge-sub {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  font-weight: 300;
-  color: #999;
+  display: none; /* Merged into title for simplicity */
 }
 
 .reviews__badge-stars {
   color: #F5A623;
-  font-size: 0.6rem;
-  letter-spacing: 2px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
 }
 
 .reviews__score-btn {
@@ -2882,6 +2931,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   display: block;
 }
 
@@ -2901,6 +2951,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   display: block;
 }
 
@@ -2957,8 +3008,8 @@ img {
 .getintouch__hero {
   position: relative;
   width: 100%;
-  height: 55vh;
-  min-height: 380px;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
 }
 
