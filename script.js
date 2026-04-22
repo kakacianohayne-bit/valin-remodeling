@@ -634,26 +634,27 @@
     // Browsers block autoplay with sound. We start muted and unmute after first scroll/click.
     const unmute = () => {
       if (hasInteracted) return;
+      
       video.muted = false;
-      video.volume = 1.0; // Max volume for clear impact
+      video.volume = 1.0;
+      
+      // Try to play with sound; if browser blocks, it stays muted
+      video.play().catch(() => {
+        video.muted = true;
+        video.play();
+      });
+
       hasInteracted = true;
       
-      // Also ensure catalog video is set to max volume if it exists
-      const catalogVideo = document.getElementById('catalogVideo');
-      if (catalogVideo) {
-        catalogVideo.muted = false;
-        catalogVideo.volume = 1.0;
-      }
-      
       // Clean up listeners
-      window.removeEventListener('scroll', unmute);
-      window.removeEventListener('click', unmute);
-      window.removeEventListener('touchstart', unmute);
+      ['scroll', 'click', 'touchstart', 'wheel', 'mousemove'].forEach(ev => {
+        window.removeEventListener(ev, unmute);
+      });
     };
 
-    window.addEventListener('scroll', unmute, { passive: true });
-    window.addEventListener('click', unmute, { passive: true });
-    window.addEventListener('touchstart', unmute, { passive: true });
+    ['scroll', 'click', 'touchstart', 'wheel', 'mousemove'].forEach(ev => {
+      window.addEventListener(ev, unmute, { passive: true });
+    });
 
     // Also use IntersectionObserver to mute when not in view
     if ('IntersectionObserver' in window) {
