@@ -617,93 +617,10 @@
     // Catalog Video Control
     setupCatalogVideo();
 
-    // Hero Video Audio Control
-    setupHeroVideoAudio();
+
   }
 
-  /* ═══════════════════════════════════════════════════
-     HERO VIDEO AUDIO CONTROL
-     ═══════════════════════════════════════════════════ */
 
-  function setupHeroVideoAudio() {
-    const video = document.getElementById('heroImage');
-    const toggle = document.getElementById('heroSoundToggle');
-    if (!video || !toggle) return;
-
-    const iconMuted = toggle.querySelector('.icon-muted');
-    const iconUnmuted = toggle.querySelector('.icon-unmuted');
-    const toggleText = toggle.querySelector('.hero__sound-text');
-
-    let hasInteracted = false;
-
-    const updateUI = (isMuted) => {
-      if (isMuted) {
-        iconMuted.style.display = 'block';
-        iconUnmuted.style.display = 'none';
-        toggleText.textContent = 'ENABLE SOUND';
-        toggle.classList.remove('is-active');
-      } else {
-        iconMuted.style.display = 'none';
-        iconUnmuted.style.display = 'block';
-        toggleText.textContent = 'SOUND ON';
-        toggle.classList.add('is-active');
-      }
-    };
-
-    const unmute = () => {
-      if (hasInteracted) return;
-      
-      // Force volume and unmute
-      video.muted = false;
-      video.volume = 1.0;
-      
-      // Some browsers need a fresh .play() call inside the event to trust the gesture
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          hasInteracted = true;
-          updateUI(false);
-          // Clean up
-          ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => {
-            window.removeEventListener(ev, unmute);
-          });
-        }).catch(err => {
-          console.log("Sound still blocked, waiting for next touch");
-        });
-      }
-    };
-
-    // Manual Toggle
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation(); // Don't trigger the window listener
-      hasInteracted = true;
-      video.muted = !video.muted;
-      video.volume = 1.0;
-      video.play();
-      updateUI(video.muted);
-    });
-
-    // Use synchronous listeners for audio activation (no passive: true)
-    ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => {
-      window.addEventListener(ev, unmute, false);
-    });
-
-    // Also use IntersectionObserver to mute when not in view
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            video.muted = true; // Mute when user scrolls far away
-            updateUI(true);
-          } else if (hasInteracted) {
-            video.muted = false; // Unmute if they come back
-            updateUI(false);
-          }
-        });
-      }, { threshold: 0.1 });
-      observer.observe(video);
-    }
-  }
 
   /* ═══════════════════════════════════════════════════
      CATALOG VIDEO CONTROLS
