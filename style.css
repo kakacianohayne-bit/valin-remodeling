@@ -160,6 +160,53 @@ img {
   will-change: transform;
 }
 
+/* ─── Sound Toggle Button ─── */
+.hero__sound-toggle {
+  position: absolute;
+  bottom: 120px;
+  right: 4vw;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-luxury);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardIn 1s var(--ease-out-expo) 3s forwards, soundPulse 3s infinite ease-in-out;
+}
+
+.hero__sound-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.hero__sound-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hero__sound-text {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@keyframes soundPulse {
+  0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+  50%      { box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.5); }
+}
+
 /* Fire animation */
 .hero__fire-glow {
   position: absolute;

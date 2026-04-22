@@ -627,11 +627,29 @@
 
   function setupHeroVideoAudio() {
     const video = document.getElementById('heroImage');
-    if (!video) return;
+    const toggle = document.getElementById('heroSoundToggle');
+    if (!video || !toggle) return;
+
+    const iconMuted = toggle.querySelector('.icon-muted');
+    const iconUnmuted = toggle.querySelector('.icon-unmuted');
+    const toggleText = toggle.querySelector('.hero__sound-text');
 
     let hasInteracted = false;
 
-    // Browsers block autoplay with sound. We start muted and unmute after first scroll/click.
+    const updateUI = (isMuted) => {
+      if (isMuted) {
+        iconMuted.style.display = 'block';
+        iconUnmuted.style.display = 'none';
+        toggleText.textContent = 'ENABLE SOUND';
+        toggle.classList.remove('is-active');
+      } else {
+        iconMuted.style.display = 'none';
+        iconUnmuted.style.display = 'block';
+        toggleText.textContent = 'SOUND ON';
+        toggle.classList.add('is-active');
+      }
+    };
+
     const unmute = () => {
       if (hasInteracted) return;
       
@@ -644,6 +662,7 @@
       if (playPromise !== undefined) {
         playPromise.then(() => {
           hasInteracted = true;
+          updateUI(false);
           // Clean up
           ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => {
             window.removeEventListener(ev, unmute);
@@ -653,6 +672,16 @@
         });
       }
     };
+
+    // Manual Toggle
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Don't trigger the window listener
+      hasInteracted = true;
+      video.muted = !video.muted;
+      video.volume = 1.0;
+      video.play();
+      updateUI(video.muted);
+    });
 
     // Use synchronous listeners for audio activation (no passive: true)
     ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => {
@@ -665,8 +694,10 @@
         entries.forEach(entry => {
           if (!entry.isIntersecting) {
             video.muted = true; // Mute when user scrolls far away
+            updateUI(true);
           } else if (hasInteracted) {
             video.muted = false; // Unmute if they come back
+            updateUI(false);
           }
         });
       }, { threshold: 0.1 });
