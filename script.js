@@ -635,25 +635,28 @@
     const unmute = () => {
       if (hasInteracted) return;
       
+      // Force volume and unmute
       video.muted = false;
       video.volume = 1.0;
       
-      // Try to play with sound; if browser blocks, it stays muted
-      video.play().catch(() => {
-        video.muted = true;
-        video.play();
-      });
-
-      hasInteracted = true;
-      
-      // Clean up listeners
-      ['scroll', 'click', 'touchstart', 'wheel', 'mousemove'].forEach(ev => {
-        window.removeEventListener(ev, unmute);
-      });
+      // Some browsers need a fresh .play() call inside the event to trust the gesture
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          hasInteracted = true;
+          // Clean up
+          ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => {
+            window.removeEventListener(ev, unmute);
+          });
+        }).catch(err => {
+          console.log("Sound still blocked, waiting for next touch");
+        });
+      }
     };
 
-    ['scroll', 'click', 'touchstart', 'wheel', 'mousemove'].forEach(ev => {
-      window.addEventListener(ev, unmute, { passive: true });
+    // Use synchronous listeners for audio activation (no passive: true)
+    ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => {
+      window.addEventListener(ev, unmute, false);
     });
 
     // Also use IntersectionObserver to mute when not in view
