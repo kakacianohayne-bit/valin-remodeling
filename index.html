@@ -47,7 +47,6 @@
           =================================
         -->
         <video
-          src="novo-back.mp4"
           class="hero__image"
           id="heroImage"
           poster="hero-bg.png"
@@ -55,7 +54,10 @@
           loop
           muted
           playsinline
-        ></video>
+          preload="auto"
+        >
+          <source src="novo-back.mp4" type="video/mp4">
+        </video>
 
         <!-- A animação de fogo foi comentada. Se o seu novo vídeo tiver uma lareira que precise de fogo falso, você pode remover os comentários de formatação abaixo 
         <div class="hero__fire-glow" id="heroFireGlow"></div> 
