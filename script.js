@@ -616,6 +616,51 @@
 
     // Catalog Video Control
     setupCatalogVideo();
+
+    // Hero Video Audio Control
+    setupHeroVideoAudio();
+  }
+
+  /* ═══════════════════════════════════════════════════
+     HERO VIDEO AUDIO CONTROL
+     ═══════════════════════════════════════════════════ */
+
+  function setupHeroVideoAudio() {
+    const video = document.getElementById('heroImage');
+    if (!video) return;
+
+    let hasInteracted = false;
+
+    // Browsers block autoplay with sound. We start muted and unmute after first scroll/click.
+    const unmute = () => {
+      if (hasInteracted) return;
+      video.muted = false;
+      video.volume = 0.5; // Start at 50% volume for better UX
+      hasInteracted = true;
+      
+      // Clean up listeners
+      window.removeEventListener('scroll', unmute);
+      window.removeEventListener('click', unmute);
+      window.removeEventListener('touchstart', unmute);
+    };
+
+    window.addEventListener('scroll', unmute, { passive: true });
+    window.addEventListener('click', unmute, { passive: true });
+    window.addEventListener('touchstart', unmute, { passive: true });
+
+    // Also use IntersectionObserver to mute when not in view
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            video.muted = true; // Mute when user scrolls far away
+          } else if (hasInteracted) {
+            video.muted = false; // Unmute if they come back
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(video);
+    }
   }
 
   /* ═══════════════════════════════════════════════════
