@@ -635,8 +635,15 @@
     const unmute = () => {
       if (hasInteracted) return;
       video.muted = false;
-      video.volume = 0.5; // Start at 50% volume for better UX
+      video.volume = 1.0; // Max volume for clear impact
       hasInteracted = true;
+      
+      // Also ensure catalog video is set to max volume if it exists
+      const catalogVideo = document.getElementById('catalogVideo');
+      if (catalogVideo) {
+        catalogVideo.muted = false;
+        catalogVideo.volume = 1.0;
+      }
       
       // Clean up listeners
       window.removeEventListener('scroll', unmute);
@@ -674,6 +681,8 @@
 
     btn.addEventListener('click', () => {
       if (video.paused) {
+        video.muted = false;
+        video.volume = 1.0;
         video.play();
         btn.classList.add('is-playing');
         btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
