@@ -2974,7 +2974,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center; /* Aligning architecture to top */
+  object-position: center center;
   display: block;
 }
 
@@ -2991,10 +2991,13 @@ img {
 }
 
 .ba-slider__before img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center; /* Aligning architecture to top */
+  object-position: center center;
   display: block;
 }
 
@@ -3041,19 +3044,21 @@ img {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-  .ba-slider__before img {
-    height: 55vh;
-  }
-}
-
 /* ─── Architectural Hero Banner ─── */
 .getintouch__hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 600px;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 700px;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .getintouch__hero {
+    height: 50vh;
+    min-height: 300px;
+  }
 }
 
 .getintouch__hero-img {
