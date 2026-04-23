@@ -602,7 +602,6 @@
     // Micro-interactions
     setupButtonInteractions();
     setupSmoothScroll();
-    setupHeroVideoControl();
 
     // Delay card tilt to after entrance animation
     setTimeout(() => {
@@ -620,33 +619,6 @@
   }
 
   /* ═══════════════════════════════════════════════════
-     HERO VIDEO CONTROLS
-     ═══════════════════════════════════════════════════ */
-
-  function setupHeroVideoControl() {
-    const video = document.getElementById('heroImage');
-    const btn = document.getElementById('heroPlayBtn');
-    if (!video || !btn) return;
-
-    // Check if playing already
-    if (!video.paused) {
-      btn.classList.add('is-playing');
-    }
-
-    btn.addEventListener('click', () => {
-      video.play();
-      btn.classList.add('is-playing');
-    });
-
-    // Fallback: if browser eventually allows autoplay
-    video.addEventListener('play', () => {
-      btn.classList.add('is-playing');
-    });
-  }
-
-
-
-  /* ═══════════════════════════════════════════════════
      CATALOG VIDEO CONTROLS
      ═══════════════════════════════════════════════════ */
 
@@ -662,8 +634,6 @@
 
     btn.addEventListener('click', () => {
       if (video.paused) {
-        video.muted = false;
-        video.volume = 1.0;
         video.play();
         btn.classList.add('is-playing');
       } else {
@@ -812,46 +782,8 @@
 
 
   /* ═══════════════════════════════════════════════════
-     SCROLL VIDEO CONTROL (Section 5)
+     SCROLL VIDEO CONTROL (Section 5) - REMOVED
      ═══════════════════════════════════════════════════ */
-
-  function setupScrollVideo() {
-    const section = document.getElementById('cinematic');
-    const video = document.getElementById('scrollVideo');
-    if (!section || !video) return;
-
-    let targetTime = 0;
-    let currentTime = 0;
-    let isVisible = false;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { isVisible = entry.isIntersecting; });
-    }, { threshold: 0.01 });
-
-    observer.observe(section);
-
-    function updateVideoFrame() {
-      if (isVisible) {
-        const rect = section.getBoundingClientRect();
-
-        // Reverted to 300vh scroll progress behavior for desktop
-        const scrollDistance = -rect.top;
-        const maxScroll = rect.height - window.innerHeight;
-        const progress = clamp(scrollDistance / Math.max(1, maxScroll), 0, 1);
-
-        if (video.readyState >= 2 && video.duration) {
-          targetTime = video.duration * progress;
-
-          // Smooth interpolation (Lerp) for buttery playback
-          currentTime += (targetTime - currentTime) * 0.15;
-          video.currentTime = currentTime;
-        }
-      }
-      requestAnimationFrame(updateVideoFrame);
-    }
-
-    requestAnimationFrame(updateVideoFrame);
-  }
 
   /* ═══════════════════════════════════════════════════
      CATALOG VIDEO CONTROL
@@ -863,24 +795,15 @@
 
     if (!video || !container) return;
 
-    // Start video automatically when entering viewport
+    // Pause video automatically when leaving viewport
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && video.paused) {
-            // Attempt to play with SOUND FIRST (works if user has clicked somewhere on the site)
-            video.muted = false;
-            video.play().catch(() => {
-              // Browser blocked it due to anti-spam auto-play policies. 
-              // Fallback magically to silent playback so the visually dynamic flow isn't broken!
-              video.muted = true;
-              video.play().catch(() => { });
-            });
-          } else if (!entry.isIntersecting && !video.paused) {
+          if (!entry.isIntersecting && !video.paused) {
             video.pause();
           }
         });
-      }, { threshold: 0.3 }); // Triggered when at least 30% of the video is visible
+      }, { threshold: 0.1 });
       observer.observe(container);
     }
 
@@ -898,20 +821,6 @@
           video.pause();
         }
       }
-    });
-
-    // CRITICAL: Unlock audio on FIRST page interaction (scroll/click)
-    const unlockAudio = () => {
-      if (video.muted && !video.paused) {
-        // Try to unmute if already playing
-        video.muted = false;
-      }
-      ['click', 'touchstart', 'mousedown', 'keydown'].forEach(evt => {
-        document.removeEventListener(evt, unlockAudio);
-      });
-    };
-    ['click', 'touchstart', 'mousedown', 'keydown'].forEach(evt => {
-      document.addEventListener(evt, unlockAudio, { once: true });
     });
 
     // Elegant UI transitions based on player state
@@ -1175,7 +1084,6 @@
     setupTypingEffect();
 
     // Specialized Sections
-    setupScrollVideo();
     setupCatalogVideo();
     setupCatalogCarousel();
     setupInteriorsScrollTransform();
