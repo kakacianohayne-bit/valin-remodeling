@@ -782,8 +782,45 @@
 
 
   /* ═══════════════════════════════════════════════════
-     SCROLL VIDEO CONTROL (Section 5) - REMOVED
+     SCROLL VIDEO CONTROL (Section 5)
      ═══════════════════════════════════════════════════ */
+
+  function setupScrollVideo() {
+    const section = document.getElementById('cinematic');
+    const video = document.getElementById('scrollVideo');
+    if (!section || !video) return;
+
+    let targetTime = 0;
+    let currentTime = 0;
+    let isVisible = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { isVisible = entry.isIntersecting; });
+    }, { threshold: 0.01 });
+
+    observer.observe(section);
+
+    function updateVideoFrame() {
+      if (isVisible) {
+        const rect = section.getBoundingClientRect();
+
+        const scrollDistance = -rect.top;
+        const maxScroll = rect.height - window.innerHeight;
+        const progress = clamp(scrollDistance / Math.max(1, maxScroll), 0, 1);
+
+        if (video.readyState >= 2 && video.duration) {
+          targetTime = video.duration * progress;
+
+          // Smooth interpolation (Lerp) for buttery playback
+          currentTime += (targetTime - currentTime) * 0.15;
+          video.currentTime = currentTime;
+        }
+      }
+      requestAnimationFrame(updateVideoFrame);
+    }
+
+    requestAnimationFrame(updateVideoFrame);
+  }
 
   /* ═══════════════════════════════════════════════════
      CATALOG VIDEO CONTROL
@@ -827,14 +864,14 @@
     video.addEventListener('play', () => {
       if (btn) {
         btn.style.opacity = '0';
-        btn.style.transform = 'scale(0.8)';
+        btn.style.transform = 'translate(-50%, -50%) scale(0.8)';
       }
     });
 
     video.addEventListener('pause', () => {
       if (btn) {
         btn.style.opacity = '1';
-        btn.style.transform = 'scale(1)';
+        btn.style.transform = 'translate(-50%, -50%) scale(1)';
       }
     });
   }
@@ -1084,6 +1121,7 @@
     setupTypingEffect();
 
     // Specialized Sections
+    setupScrollVideo();
     setupCatalogVideo();
     setupCatalogCarousel();
     setupInteriorsScrollTransform();
