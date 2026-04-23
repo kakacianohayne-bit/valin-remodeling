@@ -1531,6 +1531,46 @@ img {
   object-fit: cover;
 }
 
+/* Play Button Overlays */
+.catalog__play-btn, .hero__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.4s var(--ease-luxury);
+  padding-left: 4px; /* Optical center for play icon */
+}
+
+.catalog__play-btn:hover, .hero__play-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.catalog__play-btn svg, .hero__play-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.catalog__play-btn.is-playing, .hero__play-btn.is-playing {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 /* Text Styling (Removed card background) */
 .catalog__showcase-content {
   padding: 2rem 0;

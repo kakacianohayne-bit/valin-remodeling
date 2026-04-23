@@ -67,6 +67,11 @@
         -->
         
         <div class="hero__image-overlay" id="heroOverlay"></div>
+        <button class="hero__play-btn" id="heroPlayBtn" aria-label="Play Hero Video">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
       </div>
 
       <!-- ─── Supporting copy (Left Side) ─── -->
@@ -441,11 +446,9 @@
         </div>
         <div class="catalog__showcase-media">
           <div class="catalog__video-container">
-              <!-- VIDEO SHOWCASE -->
-              <video id="catalogVideo" src="novovideo.mp4" autoplay muted loop playsinline class="catalog__showcase-video" preload="auto" poster="foto gl.png">
-                <source src="novovideo.mp4" type="video/mp4">
-              </video>
-            </div>
+            <video id="catalogVideo" src="novovideo.mp4" autoplay muted loop playsinline class="catalog__showcase-video" preload="auto" poster="foto gl.png">
+              <source src="novovideo.mp4" type="video/mp4">
+            </video>
             <button class="catalog__play-btn" id="catalogPlayBtn" aria-label="Play Video">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>

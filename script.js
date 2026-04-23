@@ -602,6 +602,7 @@
     // Micro-interactions
     setupButtonInteractions();
     setupSmoothScroll();
+    setupHeroVideoControl();
 
     // Delay card tilt to after entrance animation
     setTimeout(() => {
@@ -616,8 +617,31 @@
 
     // Catalog Video Control
     setupCatalogVideo();
+  }
 
+  /* ═══════════════════════════════════════════════════
+     HERO VIDEO CONTROLS
+     ═══════════════════════════════════════════════════ */
 
+  function setupHeroVideoControl() {
+    const video = document.getElementById('heroImage');
+    const btn = document.getElementById('heroPlayBtn');
+    if (!video || !btn) return;
+
+    // Check if playing already
+    if (!video.paused) {
+      btn.classList.add('is-playing');
+    }
+
+    btn.addEventListener('click', () => {
+      video.play();
+      btn.classList.add('is-playing');
+    });
+
+    // Fallback: if browser eventually allows autoplay
+    video.addEventListener('play', () => {
+      btn.classList.add('is-playing');
+    });
   }
 
 
@@ -631,24 +655,25 @@
     const btn = document.getElementById('catalogPlayBtn');
     if (!video || !btn) return;
 
+    // If autoplay works, hide button
+    video.addEventListener('play', () => {
+      btn.classList.add('is-playing');
+    });
+
     btn.addEventListener('click', () => {
       if (video.paused) {
         video.muted = false;
         video.volume = 1.0;
         video.play();
         btn.classList.add('is-playing');
-        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
       } else {
         video.pause();
         btn.classList.remove('is-playing');
-        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
       }
     });
 
-    // Reset button when video ends (if not looping)
     video.addEventListener('ended', () => {
       btn.classList.remove('is-playing');
-      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
     });
   }
 
